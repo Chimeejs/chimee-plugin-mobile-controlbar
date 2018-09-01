@@ -63,11 +63,18 @@ chimee-control {
   display: block;
   width: 100%;
   height: 4em;
+  
   font-size: 10px;
   user-select: none;
-  overflow: hidden;
   font-family: Roboto, Arial, Helvetica, sans-serif;
   transition: visibility 0.5s ease;
+}
+
+/* 切换分辨率 将control种hide移除，单独给每个按钮设置hide */
+chimee-flex-component,
+chimee-screen,
+chimee-progressbar {
+  overflow: hidden
 }
 
 chimee-control:focus {
@@ -95,6 +102,7 @@ chimee-control-wrap {
   flex-grow: 0;
   height: 4em;
   cursor: pointer;
+  position: relative;
 }
 
 .chimee-flex-component svg {
@@ -180,4 +188,35 @@ chimee-screen.chimee-flex-component {
   flex-basis: 3em;
   text-align: left;
   margin-left: 1em;
+}
+
+
+chimee-clarity.open chimee-clarity-list{
+  display: block;
+}
+
+
+
+chimee-clarity-list  {
+  width: 6em;
+  position: absolute;
+  bottom: 4em;
+  left: 50%;
+  transform: translate(-50%, 0);
+  background-color: rgba(0,0,0,.2);
+  text-align: center;
+}
+
+
+
+chimee-clarity-list ul {
+  line-height: 2;
+}
+
+chimee-clarity-list li {
+  line-height: 3em
+}
+
+chimee-clarity-list li.active {
+  color:#de698c;
 }

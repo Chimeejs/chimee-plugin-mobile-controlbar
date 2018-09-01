@@ -217,6 +217,12 @@ const mobiControlbar = gestureFactory({
       removeEvent(window, 'orientationchange', this._mousemove);
       removeEvent(document, 'WeixinJSBridgeReady', this._weixinJSBridgeReady);
     },
+    _updateClarity (list) {
+      if(!isArray(list)) {
+        return console.error('list must be an array.');
+      }
+      this.children.clarity.initTextList(list);
+    }
   }
 });
 
