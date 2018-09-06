@@ -3,11 +3,12 @@ import Play from './play.js';
 import Screen from './screen.js';
 import ProgressBar from './progressbar.js';
 import CurrentTime from './currenttime.js';
+import Clarity from './clarity.js';
 import TotalTime from './totaltime.js';
 
-function hundleChildren (plugin) {
+function hundleChildren(plugin) {
   let childConfig = {};
-  if(!plugin.$config.children) {
+  if (!plugin.$config.children) {
     childConfig = plugin.isLive ? {
       play: true, // 底部播放暂停按钮
       currentTime: false, // 播放时间
@@ -21,7 +22,7 @@ function hundleChildren (plugin) {
       totalTime: true, // 总时间
       screen: true, // 全屏控制
     };
-  }else{
+  } else {
     childConfig = plugin.$config.children;
   }
   return childConfig;
@@ -35,18 +36,18 @@ function hundleChildren (plugin) {
  * @return {Array} 所有子节点
  */
 
-export function createChild (plugin) {
+export function createChild(plugin) {
   const childConfig = plugin.config.children = hundleChildren(plugin);
   const children = {};
   Object.keys(childConfig).forEach(item => {
-    switch(item) {
+    switch (item) {
       case 'play':
-        if(childConfig.play) {
+        if (childConfig.play) {
           children.play = new Play(plugin, childConfig.play);
         }
         break;
       case 'currentTime':
-        if(childConfig.currentTime) {
+        if (childConfig.currentTime) {
           children.currentTime = new CurrentTime(plugin, childConfig.currentTime);
         }
         break;
@@ -54,13 +55,18 @@ export function createChild (plugin) {
         children.progressBar = new ProgressBar(plugin, childConfig.progressBar);
         break;
       case 'totalTime':
-        if(childConfig.totalTime) {
+        if (childConfig.totalTime) {
           children.totalTime = new TotalTime(plugin, childConfig.totalTime);
         }
         break;
       case 'screen':
-        if(childConfig.screen) {
+        if (childConfig.screen) {
           children.screen = new Screen(plugin, childConfig.screen);
+        }
+        break;
+      case 'clarity':
+        if (childConfig.clarity) {
+          children.clarity = new Clarity(plugin, childConfig.clarity);
         }
         break;
       default:
@@ -71,4 +77,3 @@ export function createChild (plugin) {
 
   return children;
 }
-
