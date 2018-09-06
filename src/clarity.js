@@ -81,6 +81,7 @@ export default class Clarity extends Base {
     }
 
     if(elem.tagName === 'LI') {
+      removeClassName(this.$dom, 'open');
       const url = elem.getAttribute('data-url') || '';
       this.switchClarity(url).then(() => {
         this.loadOption = undefined;
@@ -88,7 +89,6 @@ export default class Clarity extends Base {
           removeClassName(item, 'active');
         });
         addClassName(e.target, 'active');
-        removeClassName(this.$dom, 'open');
         this.$text.text(e.target.textContent);
       }).catch((e) => {
         console.warn(e);
