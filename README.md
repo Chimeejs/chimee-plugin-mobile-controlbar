@@ -1,5 +1,7 @@
 # chimee-plugin-mobile-controlbar
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/Chimeejs/chimee-plugin-mobile-controlbar.svg)](https://greenkeeper.io/)
+
 ## install
 
 安装
