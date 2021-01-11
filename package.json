@@ -36,7 +36,7 @@
   "dependencies": {
     "chimee-helper": "^0.2.8",
     "chimee-plugin-gesture": "0.0.12",
-    "chimee-plugin-mobile-state": "git+https://github.com/Chimeejs/chimee-plugin-mobile-state.git",
+    "chimee-plugin-mobile-state": "^0.0.20",
     "toxic-decorators": "^0.3.8"
   },
   "devDependencies": {
